@@ -16,6 +16,11 @@
 
 # USER-DEFINED PARAMETERS: Excel file path; Excel column headers; condition map; calibrator condition label 
 
+# IMPORTANT: Excel formatting should be as follows
+# 1. sheet names as primer concentrations (2.5x, 5x, or 10x)
+# 2. columns = SAMPLE ID, B-ACTIN, GAPDH, and target genes
+# 3. SAMPLE ID must contain the condition and biological replicate (with no spaces or hyphens '-')
+
 ## Load the packages  ======================
 
 library(readxl)
@@ -33,6 +38,12 @@ library(writexl)
 ## path for your CT raw data form the machine
 ## wide-sheet settings (sheets are primer concentrations; rows are samples; columns are genes)
 
+#### INOVO Project 
+
+# qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_INOVO\\Liver\\INOVO_Liver_mod_SS.xlsx"
+qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_INOVO\\Spleen\\INOVO_Spleen_mod_SS.xlsx"
+# qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_INOVO\\Intestine\\INOVO_Intestine_mod_SS.xlsx"
+
 #### TM_chicken 
 
 ## for MultTissue_Devo
@@ -40,7 +51,7 @@ library(writexl)
 # qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_MultTissue_Devo\\Muscle\\OPT_MUSCLE_DEVO_SS_100_mod.xlsx"
 # qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_MultTissue_Devo\\Spleen\\OPT_SPLEEN_DEVO_SS_100_mod.xlsx"
 
-qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_MultTissue_Devo\\Liver\\Liver_Devo_CT1_CT2_cDNA_Final_SS_mod.xlsx"
+# qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_MultTissue_Devo\\Liver\\Liver_Devo_CT1_CT2_cDNA_Final_SS_mod.xlsx"
 # qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_MultTissue_Devo\\Muscle\\Muscle_Devo_CT1_CT2_cDNA_Final_SS_mod.xlsx"
 # qpcr_file_path <- "C:\\Users\\Shadi Shahatit\\OneDrive\\Desktop\\qPCR_MultTissue_Devo\\Spleen\\Spleen_Devo_CT1_CT2_cDNA_Final_SS_mod.xlsx"
 
@@ -82,6 +93,50 @@ target_gene_cols <- NULL
 
 ## Order matters: put longer/more specific patterns first (e.g. HLEM before HLM) for grepl
 
+condition_map <- c(
+  # ## Liver
+  # "liver_con1"      = "ControlLiver",
+  # "liver_con2"      = "ControlLiver",
+  # "liver_con3"      = "ControlLiver",
+  # "liver_con4"      = "ControlLiver",
+  # "liver_con5"      = "ControlLiver",
+  # "liver_con6"      = "ControlLiver",
+  # "liver_inovo7"    = "InOvoLiver",
+  # "liver_inovo8"    = "InOvoLiver",
+  # "liver_inovo9"    = "InOvoLiver",
+  # "liver_inovo10"   = "InOvoLiver",
+  # "liver_inovo11"   = "InOvoLiver",
+  # "liver_inovo12"   = "InOvoLiver"
+  
+  ## Spleen
+  "spleen_con1"     = "ControlSpleen",
+  "spleen_con2"     = "ControlSpleen",
+  "spleen_con3"     = "ControlSpleen",
+  "spleen_con4"     = "ControlSpleen",
+  "spleen_con5"     = "ControlSpleen",
+  "spleen_con6"     = "ControlSpleen",
+  "spleen_inovo7"   = "InOvoSpleen",
+  "spleen_inovo8"   = "InOvoSpleen",
+  "spleen_inovo9"   = "InOvoSpleen",
+  "spleen_inovo10"  = "InOvoSpleen",
+  "spleen_inovo11"  = "InOvoSpleen",
+  "spleen_inovo12"  = "InOvoSpleen"
+  
+  # ## Intestine
+  # "jejunum_con1"    = "ControlJejunum",
+  # "jejunum_con2"    = "ControlJejunum",
+  # "jejunum_con3"    = "ControlJejunum",
+  # "jejunum_con4"    = "ControlJejunum",
+  # "jejunum_con5"    = "ControlJejunum",
+  # "jejunum_con6"    = "ControlJejunum",
+  # "jejunum_inovo7"  = "InOvoJejunum",
+  # "jejunum_inovo8"  = "InOvoJejunum",
+  # "jejunum_inovo9"  = "InOvoJejunum",
+  # "jejunum_inovo10" = "InOvoJejunum",
+  # "jejunum_inovo11" = "InOvoJejunum",
+  # "jejunum_inovo12" = "InOvoJejunum"
+)
+
 # condition_map <- c(
 #   "D19L1"   = "D19Liver",
 #   "D7L2"    = "D7Liver",
@@ -100,40 +155,40 @@ target_gene_cols <- NULL
 #   "D22S1" = "D22Spleen"
 # )
 
-condition_map <- c(
-  ## Liver
-  "D19L1"   = "D19Liver",
-  "D19L2"   = "D19Liver",
-
-  "D7L2"    = "D7Liver",
-  "D7L3"    = "D7Liver",
-
-  "D22L2" = "D22Liver",
-  "D22L3" = "D22Liver",
-  "D22L4" = "D22Liver"
-    
-  # ## Muscle
-  # "D19M2"   = "D19Muscle",
-  # "D19M3"   = "D19Muscle",
-  # 
-  # "D7M1"    = "D7Muscle",
-  # "D7M3"    = "D7Muscle",
-  # 
-  # "D22M1" = "D22Muscle",
-  # "D22M2" = "D22Muscle",
-  # "D22M3" = "D22Muscle"
-
-  # ## Spleen
-  # "D19S1"   = "D19Spleen",
-  # "D19S3"   = "D19Spleen",
-  # 
-  # "D7S2"    = "D7Spleen",
-  # "D7S3"    = "D7Spleen",
-  # 
-  # "D22S1" = "D22Spleen",
-  # "D22S2" = "D22Spleen",
-  # "D22S6" = "D22Spleen"
-)
+# condition_map <- c(
+#   ## Liver
+#   "D19L1"   = "D19Liver",
+#   "D19L2"   = "D19Liver",
+# 
+#   "D7L2"    = "D7Liver",
+#   "D7L3"    = "D7Liver",
+# 
+#   "D22L2" = "D22Liver",
+#   "D22L3" = "D22Liver",
+#   "D22L4" = "D22Liver"
+#     
+#   # ## Muscle
+#   # "D19M2"   = "D19Muscle",
+#   # "D19M3"   = "D19Muscle",
+#   # 
+#   # "D7M1"    = "D7Muscle",
+#   # "D7M3"    = "D7Muscle",
+#   # 
+#   # "D22M1" = "D22Muscle",
+#   # "D22M2" = "D22Muscle",
+#   # "D22M3" = "D22Muscle"
+# 
+#   # ## Spleen
+#   # "D19S1"   = "D19Spleen",
+#   # "D19S3"   = "D19Spleen",
+#   # 
+#   # "D7S2"    = "D7Spleen",
+#   # "D7S3"    = "D7Spleen",
+#   # 
+#   # "D22S1" = "D22Spleen",
+#   # "D22S2" = "D22Spleen",
+#   # "D22S6" = "D22Spleen"
+# )
 
 # condition_map <- c(
 #   "CON_N"   = "Con_N",
@@ -145,20 +200,31 @@ condition_map <- c(
 #   )
 
 ## control condition - could change if other comp is needed
-
-calibrator_condition_label <- "D19Liver"
-# calibrator_condition_label <- "D19Muscle"
-# calibrator_condition_label <- "D19Spleen"
-
-# calibrator_condition_label <- "Con_N"
-
 ## desired condition levels
 
+## for INOVO
+
+# calibrator_condition_label <- "ControlLiver"
+# condition_levels <- c("ControlLiver","InOvoLiver")
+
+calibrator_condition_label <- "ControlSpleen"
+condition_levels <- c("ControlSpleen","InOvoSpleen")
+
+# calibrator_condition_label <- "ControlJejunum"
+# condition_levels <- c("ControlJejunum","InOvoJejunum")
+
 ## for MultTissue_Devo
-condition_levels <- c("D19Liver","D7Liver","D22Liver")
+
+# calibrator_condition_label <- "D19Liver"
+# condition_levels <- c("D19Liver","D7Liver","D22Liver")
+
+# calibrator_condition_label <- "D19Muscle"
 # condition_levels <- c("D19Muscle","D7Muscle","D22Muscle")
+
+# calibrator_condition_label <- "D19Spleen"
 # condition_levels <- c("D19Spleen","D22Spleen","D7Spleen")
 
+# calibrator_condition_label <- "Con_N"
 ## for muscle
 # condition_levels <- c("Con_N","TM_N","Con_AHS","TM_AHS","Con_CHS","TM_CHS")
 ## for liver
@@ -177,11 +243,9 @@ condition_levels <- c("D19Liver","D7Liver","D22Liver")
 #   )
 
 ## control condition - could change if other comp is needed
-
-# calibrator_condition_label <- "CM"
-
 ## desired condition levels
 
+# calibrator_condition_label <- "CM"
 ## for Atro_Ex - Muscle
 # condition_levels <- c("CM","HLM","HLEM","HEM","LEM")
 
@@ -196,11 +260,9 @@ condition_levels <- c("D19Liver","D7Liver","D22Liver")
 # )
 
 ## control condition - could change if other comp is needed
-
-# calibrator_condition_label <- "CT"
-
 ## desired condition levels
 
+# calibrator_condition_label <- "CT"
 ## for Atro_Ex - Intestine
 # condition_levels <- c("CT","HLT","HLET","HET","LET")
 
@@ -215,11 +277,9 @@ condition_levels <- c("D19Liver","D7Liver","D22Liver")
 # )
 
 ## control condition - could change if other comp is needed
-
-# calibrator_condition_label <- "CH"
-
 ## desired condition levels
 
+# calibrator_condition_label <- "CH"
 ## for Atro_Ex - Heart
 # condition_levels <- c("CH","HLH","HLEH","HEH","LEH")
 
@@ -684,20 +744,20 @@ gene_condition_summary_actin_2_5x$condition_label <- factor(gene_condition_summa
 # gene_condition_summary_actin_5x$condition_label <- factor(gene_condition_summary_actin_5x$condition_label, levels = c(condition_levels))
 # gene_condition_summary_actin_10x$condition_label <- factor(gene_condition_summary_actin_10x$condition_label, levels = c(condition_levels))
 
-# ggplot(gene_condition_summary_gapdh_2_5x, aes(x = condition_label, y = mean_fold_change)) +
-#   geom_col(fill = "grey30", color = "grey30", width = 0.6) +
-#   geom_errorbar(
-#     aes(ymin = mean_fold_change - se_fold_change,
-#         ymax = mean_fold_change + se_fold_change),
-#     width = 0.2, color = "grey30") +
-#   geom_text(
-#     aes(y = annotation_y_pos, label = significance_symbol),
-#     vjust = 0) +
-#   facet_wrap(~ target_gene, scales = "free_y") +
-#   labs(x = NULL, y = "Relative expression (2^-ΔΔCt)", title = paste0("Calibrator cond: ", calibrator_condition_label)) +
-#   theme_classic() +
-#   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-# 
+ggplot(gene_condition_summary_gapdh_2_5x, aes(x = condition_label, y = mean_fold_change)) +
+  geom_col(fill = "grey30", color = "grey30", width = 0.6) +
+  geom_errorbar(
+    aes(ymin = mean_fold_change - se_fold_change,
+        ymax = mean_fold_change + se_fold_change),
+    width = 0.2, color = "grey30") +
+  geom_text(
+    aes(y = annotation_y_pos, label = significance_symbol),
+    vjust = 0) +
+  facet_wrap(~ target_gene, scales = "free_y") +
+  labs(x = NULL, y = "Relative expression (2^-ΔΔCt)", title = paste0("Calibrator cond: ", calibrator_condition_label)) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 # ggplot(gene_condition_summary_gapdh_5x, aes(x = condition_label, y = mean_fold_change)) +
 #   geom_col(fill = "grey30", color = "grey30", width = 0.6) +
 #   geom_errorbar(
