@@ -1,0 +1,72 @@
+[2026-06-28 14:28:40.290] [jointLog] [info] setting maxHashResizeThreads to 8
+[2026-06-28 14:28:40.290] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2026-06-28 14:28:40.290] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2026-06-28 14:28:40.290] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2026-06-28 14:28:40.290] [jointLog] [info] parsing read library format
+[2026-06-28 14:28:40.290] [jointLog] [info] There is 1 library.
+[2026-06-28 14:28:40.290] [jointLog] [info] Loading pufferfish index
+[2026-06-28 14:28:40.290] [jointLog] [info] Loading dense pufferfish index.
+[2026-06-28 14:28:41.030] [jointLog] [info] done
+[2026-06-28 14:28:41.131] [jointLog] [info] Index contained 44,785 targets
+[2026-06-28 14:28:41.904] [jointLog] [info] Number of decoys : 0
+[2026-06-28 14:28:42.786] [jointLog] [info] Automatically detected most likely library type as ISR
+
+[2026-06-28 14:35:56.863] [jointLog] [info] Thread saw mini-batch with a maximum of 2.94% zero probability fragments
+[2026-06-28 14:35:56.865] [jointLog] [info] Thread saw mini-batch with a maximum of 2.86% zero probability fragments
+[2026-06-28 14:35:56.880] [jointLog] [info] Thread saw mini-batch with a maximum of 2.94% zero probability fragments
+[2026-06-28 14:35:56.900] [jointLog] [info] Thread saw mini-batch with a maximum of 3.00% zero probability fragments
+[2026-06-28 14:35:56.908] [jointLog] [info] Thread saw mini-batch with a maximum of 2.94% zero probability fragments
+[2026-06-28 14:35:56.937] [jointLog] [info] Thread saw mini-batch with a maximum of 2.96% zero probability fragments
+[2026-06-28 14:35:56.978] [jointLog] [info] Thread saw mini-batch with a maximum of 3.24% zero probability fragments
+[2026-06-28 14:35:57.013] [jointLog] [info] Thread saw mini-batch with a maximum of 2.96% zero probability fragments
+[2026-06-28 14:35:57.114] [jointLog] [info] Computed 181,228 rich equivalence classes for further processing
+[2026-06-28 14:35:57.114] [jointLog] [info] Counted 25,071,457 total reads in the equivalence classes 
+[2026-06-28 14:35:57.119] [jointLog] [info] Number of mappings discarded because of alignment score : 20,930,473
+[2026-06-28 14:35:57.119] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 2,730,933
+[2026-06-28 14:35:57.119] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 0
+[2026-06-28 14:35:57.119] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 315,146
+[2026-06-28 14:35:57.119] [jointLog] [info] Mapping rate = 42.8418%
+
+[2026-06-28 14:35:57.119] [jointLog] [info] finished quantifyLibrary()
+[2026-06-28 14:35:57.128] [jointLog] [info] Starting optimizer
+[2026-06-28 14:35:57.114] [fileLog] [info] 
+At end of round 0
+==================
+Observed 58521021 total fragments (58521021 in most recent round)
+
+[2026-06-28 14:35:57.156] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2026-06-28 14:35:57.160] [jointLog] [info] iteration = 0 | max rel diff. = 26428.7
+[2026-06-28 14:35:57.191] [jointLog] [info] iteration 11, adjusting effective lengths to account for biases
+[2026-06-28 14:36:24.905] [jointLog] [info] Computed expected counts (for bias correction)
+[2026-06-28 14:36:24.905] [jointLog] [info] processed bias for 0.0% of the transcripts
+[2026-06-28 14:36:27.318] [jointLog] [info] processed bias for 10.0% of the transcripts
+[2026-06-28 14:36:30.505] [jointLog] [info] processed bias for 20.0% of the transcripts
+[2026-06-28 14:36:32.945] [jointLog] [info] processed bias for 30.0% of the transcripts
+[2026-06-28 14:36:35.788] [jointLog] [info] processed bias for 40.0% of the transcripts
+[2026-06-28 14:36:40.553] [jointLog] [info] processed bias for 50.0% of the transcripts
+[2026-06-28 14:36:45.448] [jointLog] [info] processed bias for 60.0% of the transcripts
+[2026-06-28 14:36:48.638] [jointLog] [info] processed bias for 70.0% of the transcripts
+[2026-06-28 14:36:51.277] [jointLog] [info] processed bias for 80.0% of the transcripts
+[2026-06-28 14:36:54.299] [jointLog] [info] processed bias for 90.0% of the transcripts
+[2026-06-28 14:36:57.578] [jointLog] [info] processed bias for 100.0% of the transcripts
+[2026-06-28 14:36:57.599] [jointLog] [info] processed bias for 100.0% of the transcripts
+[2026-06-28 14:36:57.903] [jointLog] [info] iteration = 100 | max rel diff. = 19.2228
+[2026-06-28 14:36:58.236] [jointLog] [info] iteration = 200 | max rel diff. = 3.02027
+[2026-06-28 14:36:58.554] [jointLog] [info] iteration = 300 | max rel diff. = 0.874852
+[2026-06-28 14:36:58.874] [jointLog] [info] iteration = 400 | max rel diff. = 3.73792
+[2026-06-28 14:36:59.206] [jointLog] [info] iteration = 500 | max rel diff. = 3.05894
+[2026-06-28 14:36:59.554] [jointLog] [info] iteration = 600 | max rel diff. = 0.178868
+[2026-06-28 14:36:59.883] [jointLog] [info] iteration = 700 | max rel diff. = 0.793435
+[2026-06-28 14:37:00.238] [jointLog] [info] iteration = 800 | max rel diff. = 0.0916279
+[2026-06-28 14:37:00.580] [jointLog] [info] iteration = 900 | max rel diff. = 7.29201
+[2026-06-28 14:37:00.891] [jointLog] [info] iteration = 1,000 | max rel diff. = 0.285128
+[2026-06-28 14:37:01.239] [jointLog] [info] iteration = 1,100 | max rel diff. = 13.654
+[2026-06-28 14:37:01.566] [jointLog] [info] iteration = 1,200 | max rel diff. = 0.993763
+[2026-06-28 14:37:02.030] [jointLog] [info] iteration = 1,300 | max rel diff. = 0.0148825
+[2026-06-28 14:37:02.744] [jointLog] [info] iteration = 1,400 | max rel diff. = 0.021622
+[2026-06-28 14:37:03.327] [jointLog] [info] iteration = 1,500 | max rel diff. = 0.139007
+[2026-06-28 14:37:03.831] [jointLog] [info] iteration = 1,600 | max rel diff. = 0.111582
+[2026-06-28 14:37:04.203] [jointLog] [info] iteration = 1,678 | max rel diff. = 0.0099551
+[2026-06-28 14:37:04.207] [jointLog] [info] Finished optimizer
+[2026-06-28 14:37:04.207] [jointLog] [info] writing output 
+
