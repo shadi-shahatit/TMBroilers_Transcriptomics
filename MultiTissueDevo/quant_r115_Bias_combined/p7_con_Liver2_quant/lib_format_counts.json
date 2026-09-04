@@ -1,0 +1,22 @@
+{
+    "read_files": "[ /home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/liver/trimmed_fastq/p7_con_Liver2_trim_1.fastq.gz, /home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/liver/trimmed_fastq/p7_con_Liver2_trim_2.fastq.gz]",
+    "expected_format": "ISR",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 36329064,
+    "num_assigned_fragments": 36329064,
+    "num_frags_with_concordant_consistent_mappings": 34806635,
+    "num_frags_with_inconsistent_or_orphan_mappings": 1617035,
+    "strand_mapping_bias": 0.00003137234442226004,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 1092,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 34806635,
+    "SF": 834781,
+    "SR": 781162,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}
