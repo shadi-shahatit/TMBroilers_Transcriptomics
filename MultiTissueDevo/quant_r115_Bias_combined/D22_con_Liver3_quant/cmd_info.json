@@ -1,0 +1,13 @@
+{
+    "salmon_version": "1.10.3",
+    "index": "/home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/Ggallus_Refs/cdna_r115",
+    "libType": "A",
+    "mates1": "/home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/liver/trimmed_fastq/D22_con_Liver3_trim_1.fastq.gz",
+    "mates2": "/home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/liver/trimmed_fastq/D22_con_Liver3_trim_2.fastq.gz",
+    "threads": "8",
+    "validateMappings": [],
+    "seqBias": [],
+    "gcBias": [],
+    "output": "/home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/MultiTissueDevo/quant_r115_Bias_combined/D22_con_Liver3_quant",
+    "auxDir": "aux_info"
+}
