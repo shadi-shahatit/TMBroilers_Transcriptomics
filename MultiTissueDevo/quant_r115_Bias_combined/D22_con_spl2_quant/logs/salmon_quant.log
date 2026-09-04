@@ -1,0 +1,70 @@
+[2026-06-28 14:13:56.580] [jointLog] [info] setting maxHashResizeThreads to 8
+[2026-06-28 14:13:56.580] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2026-06-28 14:13:56.580] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2026-06-28 14:13:56.580] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2026-06-28 14:13:56.580] [jointLog] [info] parsing read library format
+[2026-06-28 14:13:56.580] [jointLog] [info] There is 1 library.
+[2026-06-28 14:13:56.580] [jointLog] [info] Loading pufferfish index
+[2026-06-28 14:13:56.580] [jointLog] [info] Loading dense pufferfish index.
+[2026-06-28 14:13:57.364] [jointLog] [info] done
+[2026-06-28 14:13:57.437] [jointLog] [info] Index contained 44,785 targets
+[2026-06-28 14:13:58.157] [jointLog] [info] Number of decoys : 0
+[2026-06-28 14:13:58.745] [jointLog] [info] Automatically detected most likely library type as ISR
+
+[2026-06-28 14:19:49.813] [fileLog] [info] 
+At end of round 0
+==================
+Observed 55470757 total fragments (55470757 in most recent round)
+
+[2026-06-28 14:19:49.557] [jointLog] [info] Thread saw mini-batch with a maximum of 2.84% zero probability fragments
+[2026-06-28 14:19:49.565] [jointLog] [info] Thread saw mini-batch with a maximum of 2.84% zero probability fragments
+[2026-06-28 14:19:49.585] [jointLog] [info] Thread saw mini-batch with a maximum of 2.74% zero probability fragments
+[2026-06-28 14:19:49.590] [jointLog] [info] Thread saw mini-batch with a maximum of 2.88% zero probability fragments
+[2026-06-28 14:19:49.600] [jointLog] [info] Thread saw mini-batch with a maximum of 2.88% zero probability fragments
+[2026-06-28 14:19:49.611] [jointLog] [info] Thread saw mini-batch with a maximum of 2.76% zero probability fragments
+[2026-06-28 14:19:49.697] [jointLog] [info] Thread saw mini-batch with a maximum of 2.84% zero probability fragments
+[2026-06-28 14:19:49.698] [jointLog] [info] Thread saw mini-batch with a maximum of 2.82% zero probability fragments
+[2026-06-28 14:19:49.813] [jointLog] [info] Computed 247,811 rich equivalence classes for further processing
+[2026-06-28 14:19:49.813] [jointLog] [info] Counted 22,256,571 total reads in the equivalence classes 
+[2026-06-28 14:19:49.818] [jointLog] [info] Number of mappings discarded because of alignment score : 17,407,636
+[2026-06-28 14:19:49.818] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 2,772,593
+[2026-06-28 14:19:49.818] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 0
+[2026-06-28 14:19:49.818] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 247,226
+[2026-06-28 14:19:49.818] [jointLog] [info] Mapping rate = 40.1231%
+
+[2026-06-28 14:19:49.818] [jointLog] [info] finished quantifyLibrary()
+[2026-06-28 14:19:49.820] [jointLog] [info] Starting optimizer
+[2026-06-28 14:19:49.849] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2026-06-28 14:19:49.855] [jointLog] [info] iteration = 0 | max rel diff. = 27395.1
+[2026-06-28 14:19:49.905] [jointLog] [info] iteration 11, adjusting effective lengths to account for biases
+[2026-06-28 14:20:14.019] [jointLog] [info] Computed expected counts (for bias correction)
+[2026-06-28 14:20:14.019] [jointLog] [info] processed bias for 0.0% of the transcripts
+[2026-06-28 14:20:16.443] [jointLog] [info] processed bias for 10.0% of the transcripts
+[2026-06-28 14:20:18.847] [jointLog] [info] processed bias for 20.0% of the transcripts
+[2026-06-28 14:20:21.319] [jointLog] [info] processed bias for 30.0% of the transcripts
+[2026-06-28 14:20:23.785] [jointLog] [info] processed bias for 40.0% of the transcripts
+[2026-06-28 14:20:26.065] [jointLog] [info] processed bias for 50.0% of the transcripts
+[2026-06-28 14:20:28.325] [jointLog] [info] processed bias for 60.0% of the transcripts
+[2026-06-28 14:20:30.554] [jointLog] [info] processed bias for 70.0% of the transcripts
+[2026-06-28 14:20:32.848] [jointLog] [info] processed bias for 80.0% of the transcripts
+[2026-06-28 14:20:35.335] [jointLog] [info] processed bias for 90.0% of the transcripts
+[2026-06-28 14:20:37.750] [jointLog] [info] processed bias for 100.0% of the transcripts
+[2026-06-28 14:20:38.110] [jointLog] [info] iteration = 100 | max rel diff. = 20.3748
+[2026-06-28 14:20:38.508] [jointLog] [info] iteration = 200 | max rel diff. = 15.628
+[2026-06-28 14:20:38.899] [jointLog] [info] iteration = 300 | max rel diff. = 18.6091
+[2026-06-28 14:20:39.300] [jointLog] [info] iteration = 400 | max rel diff. = 0.892753
+[2026-06-28 14:20:39.698] [jointLog] [info] iteration = 500 | max rel diff. = 0.234487
+[2026-06-28 14:20:40.092] [jointLog] [info] iteration = 600 | max rel diff. = 0.210471
+[2026-06-28 14:20:40.485] [jointLog] [info] iteration = 700 | max rel diff. = 0.157702
+[2026-06-28 14:20:40.876] [jointLog] [info] iteration = 800 | max rel diff. = 0.168966
+[2026-06-28 14:20:41.279] [jointLog] [info] iteration = 900 | max rel diff. = 0.065072
+[2026-06-28 14:20:41.678] [jointLog] [info] iteration = 1,000 | max rel diff. = 0.0385443
+[2026-06-28 14:20:42.073] [jointLog] [info] iteration = 1,100 | max rel diff. = 0.194156
+[2026-06-28 14:20:42.476] [jointLog] [info] iteration = 1,200 | max rel diff. = 0.029502
+[2026-06-28 14:20:42.872] [jointLog] [info] iteration = 1,300 | max rel diff. = 0.0299427
+[2026-06-28 14:20:43.275] [jointLog] [info] iteration = 1,400 | max rel diff. = 0.116417
+[2026-06-28 14:20:43.672] [jointLog] [info] iteration = 1,500 | max rel diff. = 0.0509777
+[2026-06-28 14:20:44.026] [jointLog] [info] iteration = 1,591 | max rel diff. = 0.00869333
+[2026-06-28 14:20:44.027] [jointLog] [info] Finished optimizer
+[2026-06-28 14:20:44.027] [jointLog] [info] writing output 
+
