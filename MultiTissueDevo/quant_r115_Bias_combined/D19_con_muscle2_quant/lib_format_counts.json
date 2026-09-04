@@ -1,0 +1,22 @@
+{
+    "read_files": "[ /home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/muscle/trimmed_fastq/D19_con_muscle2_trim_1.fastq.gz, /home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/muscle/trimmed_fastq/D19_con_muscle2_trim_2.fastq.gz]",
+    "expected_format": "ISR",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 25455307,
+    "num_assigned_fragments": 25455307,
+    "num_frags_with_concordant_consistent_mappings": 23396599,
+    "num_frags_with_inconsistent_or_orphan_mappings": 2274917,
+    "strand_mapping_bias": 0.000023165223477518047,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 542,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 23396599,
+    "SF": 1167915,
+    "SR": 1106460,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}
