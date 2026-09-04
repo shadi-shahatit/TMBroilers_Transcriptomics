@@ -1,0 +1,22 @@
+{
+    "read_files": "[ /home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/spleen/trimmed_fastq/D19_con_spleen3_trim_1.fastq.gz, /home/shadi/Desktop/transcriptome_alzghoul_SS/TMBroilers_Transcriptomics/spleen/trimmed_fastq/D19_con_spleen3_trim_2.fastq.gz]",
+    "expected_format": "ISR",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 24502612,
+    "num_assigned_fragments": 24502612,
+    "num_frags_with_concordant_consistent_mappings": 22020531,
+    "num_frags_with_inconsistent_or_orphan_mappings": 2655401,
+    "strand_mapping_bias": 0.000057851751934049,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 1274,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 22020531,
+    "SF": 1337624,
+    "SR": 1316503,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}
